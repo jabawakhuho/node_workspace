@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JSON표기법학습</title>
+<script>
+//숫자 문자 논리값
+var arr = [1,2,3];
+var arr2 = ["1","2","3"];
+var arr3 = [true,false];
+
+//JSON은 
+//프로그램 로직에 사용되는 그 객체와는 목적이 틀리므로,
+//오직 데이터를 담는 용도로만 사용된다... 
+/*
+일반적 객체 {변수 , 함수}
+JSON {변수}
+*/
+
+var data="";
+
+data=data+"{";
+data+="	\"제품수\":3,";
+data+="\"원산지\":\"한국\",";
+data+="\"제품목록\":[";
+data+="{";
+data+="	\"제품명\":\"세탁기\",";
+data+="\"제조사\":\"삼성\",";
+data+="\"가격\":500000,";
+data+="\"절전기능\":true";
+data+="},";
+data+="{";
+data+="\"제품명\":\"냉장고\",";
+data+="\"제조사\":\"LG\",";
+data+="\"가격\":2000000,";
+data+="\"절전기능\":false";
+data+="},";
+data+="{";
+data+="\"제품명\":\"TV\",";
+data+="\"제조사\":\"삼성\",";
+data+="\"가격\":4000000,";
+data+="\"절전기능\":true";
+data+="}";
+data+="]";
+data+="}";
+
+//document.write(data);
+
+var  obj=JSON.parse(data); //String에 불과한 데이터를 JSON객체화 시킴!!!
+//string data를 대상으로 json객체화 시키면, 마치 객체처럼 취급받기때문에 객체지향 언어의 코드방식은 점(.)찍고 속성에 접근하는 개발 방법이 가능한다. (객체지향 개발자에게 너무 친숙하다....
+//따라서 xml보다 훨씬 사용이 직관적이다.)
+document.write(obj.원산지+"<br>");
+
+for(var i=0;i<obj.제품목록.length;i++){
+	document.write("제품명 : "+obj.제품목록[i].제품명+"<br>");
+}
+</script>
+</head>
+<body>
+
+</body>
+</html>
